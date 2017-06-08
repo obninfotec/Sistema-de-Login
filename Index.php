@@ -17,9 +17,6 @@ $Loader->Register();
 //$Controller = new App\Mvc\Controller();
 //$Controller->Index();
 
-$Pdo = new PDO("mysql:host=localhost;dbname=shop", "root", "");
-//$ProductRepository = new App\Model\Product\ProductRepositoryPDO($Pdo);
-
 $Page = isset($_GET['page']) ? $_GET['page'] : '';
 $Action = isset($_GET['action']) ? $_GET['action'] : 'Index';
 
@@ -27,11 +24,6 @@ switch ($Page) {
     case 'cart' :
         $Cart = new App\Controller\Cart();
         call_user_func_array(array($Cart, $Action), array());
-        break;
-
-    case 'login' :
-        $Login = new App\Controller\Login();
-        call_user_func_array(array($Login, $Action), array());
         break;
 
     default :
